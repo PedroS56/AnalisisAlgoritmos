@@ -16,13 +16,13 @@ int main(int argc, char *argv[]) {
     fclose(fichero);
 
     for(int i=0;i<(n-1);i++){
-	for(int j=0;j<((n-1)-i);j++){
-		if(A[j]>A[j+1]){
-			aux = A[j];
-			A[j] = A[j+1];
-			A[j+1] = aux;	
+		for(int j=0;j<((n-1)-i);j++){
+			if(A[j]>A[j+1]){
+				aux = A[j];
+				A[j] = A[j+1];
+				A[j+1] = aux;	
+			}
 		}
-	}
     }
 
  
