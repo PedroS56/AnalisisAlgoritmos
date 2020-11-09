@@ -1,159 +1,101 @@
-typedef struct NodoAB
+typedef int Elem;
+typedef struct Nodo
 {
 	Elem r;
-	struct NodoAB *i;
-	struct NodoAB *d;
+	struct Nodo *i;
+	struct Nodo *d;
 } *Arbin;
 
-Arbin nuevoab (void)
-{
+/*
+	FUNCION: Inicializar
+	RECIBE: Nada
+	DESCRIPCION: Inicializa el arbol binario
+	DEVUELVE: Un nodo NULL
+*/
+Arbin Inicializar (void){
 	return NULL;
 }
 
-Arbin consab(Elem r,Arbin i, Arbin d)
-{
-	Arbin t = (Arbin)malloc(sizeof(struct NodoAB));
+/*
+	FUNCION: CrearNodo
+	RECIBE: (Elem) contenido, (Arbin) hijo izquierdo, (Arbin) hijo derecho
+	DESCRIPCION: Crea un nuevo nodo en el arbol
+	DEVUELVE: Un nodo 
+*/
+Arbin CrearNodo(Elem r,Arbin i, Arbin d){
+	Arbin t = (Arbin)malloc(sizeof(struct Nodo));
 	t->r=r;
 	t->i=i;
 	t->d=d;
 	return t;
 }
 
-int esnuevoab (Arbin a)
-{
-	return a==NULL;
+/*
+	FUNCION: ImpElem
+	RECIBE: (Elem) un elemento
+	DESCRIPCION:  Imprime el elemento dado
+	DEVUELVE: Implicitamente, el valor del elemento
+*/
+void ImpElem (Elem e){
+	printf("%d\n",e);
 }
 
-Elem raiz (Arbin a)
-{
+/*
+	FUNCION: ObtenerValor
+	RECIBE: (Arbin) Un nodo
+	DESCRIPCION: Retorna el elemento que esta contenido en el nodo dado
+	DEVUELVE: El elemento contenido en el nodo
+*/
+Elem ObtenerValor(Arbin a){
 	return a->r;
 }
 
-Arbin hijoi (Arbin a)
-{
+/*
+	FUNCION: HijoIzq
+	RECIBE: (Arbin) Un nodo
+	DESCRIPCION: Retorna el hijo izquierdo del nodo dado
+	DEVUELVE: El hijo izquierdo del nodo
+*/
+Arbin HijoIzq (Arbin a){
 	return a->i;
 }
 
-Arbin hijod (Arbin a)
-{
+/*
+	FUNCION: HijoDer
+	RECIBE: (Arbin) Un nodo
+	DESCRIPCION: Retorna el hijo derecho del nodo dado
+	DEVUELVE: El hijo derecho del nodo
+*/
+Arbin HijoDer (Arbin a){
 	return a->d;
 }
 
-void ImpIn (Arbin a)
-{
-	if(!esnuevoab(a))
-	{
-		ImpIn(hijoi(a));
-		ImpElem(raiz(a));
-		ImpIn(hijod(a));
+/*
+	FUNCION: ImpIn
+	RECIBE: (Arbin) Un nodo
+	DESCRIPCION: Imprime de manera InOrden el arbol binario dado
+	DEVUELVE: Implicitamente, los valores almacenados en el arbol
+*/
+void ImpIn (Arbin a){
+	if(a!=NULL){
+		ImpIn(HijoIzq(a));
+		ImpElem(ObtenerValor(a));
+		ImpIn(HijoDer(a));
 	}
 }
 
-int maximo (int a1, int a2)
-{
-	if(a1>=a2)
-		return a1;
-	else
-		return a2;
-		
-}
-
-int altura (Arbin a)
-{
-	if(esnuevoab(a))
-		return 0;
-	else
-		return 1+maximo(altura(hijoi(a)),altura(hijod(a)));
-}
-
-int NumNodos (Arbin a)
-{
-	if(esnuevoab(a))
-		return 0;
-	else
-		return 1+NumNodos(hijoi(a))+NumNodos(hijod(a));
-}
-
-void ImpNivelN (Arbin a, int nivel)
-{
-	if(esnuevoab(a))
-		return;
-	if(nivel==1)
-		ImpElem(raiz(a));	
-	else 
-		if(nivel>1)
-		{
-			ImpNivelN(hijoi(a),nivel-1);
-			ImpNivelN(hijod(a),nivel-1);
-		}
-}
-
-void ImpArbin (Arbin a)
-{
-	int h = altura(a);
-	int hx = h-1;
-	int i,j;
-	for(i=1; i<=h; i++)
-	{
-		ImpNivelN(a,i);
-		printf("\n");
-	}
-}
-
-
-int Eslleno (Arbin a)
-{
-	if(esnuevoab(a))
-		return 1;
-	else
-		if(altura(hijoi(a))==altura(hijod(a))&&Eslleno(hijoi(a))&&Eslleno(hijod(a)))
-			return 1;
+/*
+	FUNCION: Insertar
+	RECIBE: (Elem) Un elemento, (Arbin) Un nodo contenedor del elemento
+	DESCRIPCION: Crea un nuevo nodo en el arbol dado, con su respectivo
+	hijo izquiero e hijo derecho.
+	DEVUELVE: Un nuevo nodo con hijos y un elmento contenido
+*/
+Arbin Insertar(Elem e,Arbin d){
+	if(d==NULL)
+		return CrearNodo(e,Inicializar(),Inicializar());
+	else if(e<ObtenerValor(d))
+			return CrearNodo(ObtenerValor(d),Insertar(e,HijoIzq(d)),HijoDer(d));
 		else
-			return 0;
-		
-}
-
-int EsCompleto (Arbin a)
-{
-	if(esnuevoab(a))
-		return 1;
-	else
-		if(altura(hijoi(a))==altura(hijod(a)))
-			if(Eslleno(hijoi(a))&&EsCompleto(hijod(a)))
-				return 1;
-			else
-				return 0;
-		else
-			if((altura(hijoi(a))-altura(hijod(a)))>=0&&(altura(hijoi(a))-altura(hijod(a)))<=1)
-				return EsCompleto(hijoi(a))&&Eslleno(hijod(a));
-}
-
-Arbin consCompleto (Elem e, Arbin a)
-{
-	if(esnuevoab(a))
-		return consab(e,nuevoab(),nuevoab());
-	else
-		if(Eslleno(a)||!Eslleno(hijoi(a)))	
-			return consab(raiz(a),consCompleto(e,hijoi(a)),hijod(a));
-		else
-			return consab(raiz(a),hijoi(a),consCompleto(e,hijod(a)));
-}
-
-int esHoja (Arbin a)
-{
-	if(esnuevoab(hijod(a))&&esnuevoab(hijoi(a)))
-		return 1;
-	else
-		return 0;
-}
-
-Elem masDerecho(Arbin a)
-{
-	if(esHoja(a))
-		return raiz(a);
-	else
-		if(altura(hijoi(a))==altura(hijod(a)))
-			return masDerecho(hijod(a));
-		else
-			return masDerecho(hijoi(a));
+			return CrearNodo(ObtenerValor(d),HijoIzq(d),Insertar(e,HijoDer(d)));
 }

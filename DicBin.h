@@ -1,16 +1,6 @@
 #include "Arbin.h"
 typedef Arbin DicBin;
 
-DicBin InsOrdab (Elem e,DicBin d)
-{
-	if(esnuevoab(d))
-		return consab(e,nuevoab(),nuevoab());
-	else if(Menor(e,raiz(d)))
-			return consab(raiz(d),InsOrdab(e,hijoi(d)),hijod(d));
-		else
-			return consab(raiz(d),hijoi(d),InsOrdab(e,hijod(d)));
-}
-
 int estaen (Elem e, DicBin a)
 {
 	if(esnuevoab(a))
