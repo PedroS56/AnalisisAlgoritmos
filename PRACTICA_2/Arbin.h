@@ -114,6 +114,4 @@ boolean BuscarElemento(Elem e, Arbin a){
 			return 1;
 		}
 	}
-	//Si llega a esta parte del codigo, quiere decir que no lo ha encontrado
-	return 0;
 }
