@@ -13,10 +13,13 @@ LIBRERIAS A UTILIZAR
 
 void main(int argc, char *argv[]){
 	int n=0, *numeros=NULL, i=0, num=0;
+	double utime0, stime0, wtime0,utime1, stime1, wtime1;
 	boolean estaEn = FALSE;
 	n = atoi(argv[1]);
 	num = atoi(argv[2]);
 	numeros=malloc(n*sizeof(int));
+	 printf("\n----------------------------------------------------------------------------\n");
+    printf("n=%d\nx=%d\n",n,num);
 	if(numeros==NULL){
 		printf("main.Imposible asignar memoria\n");
 		exit(0);
@@ -31,12 +34,16 @@ void main(int argc, char *argv[]){
 		a = Insertar(numeros[i], a);
 	}
 	//Aqui comenzamos la busqueda
+	uswtime(&utime0, &stime0, &wtime0);
 	estaEn = BuscarElemento(num,a);
+	uswtime(&utime1, &stime1, &wtime1); 
+
 	if(estaEn==TRUE){
 		printf("El numero se encuentra en el arreglo\n");
-		exit(0);
 	}else{
 		printf("El numero no se encuentra en el arreglo\n");
-		exit(0);
 	}
+	//Cálculo del tiempo de ejecución del programa
+	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
+	exit (0);
 }

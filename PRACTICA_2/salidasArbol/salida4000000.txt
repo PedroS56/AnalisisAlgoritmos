@@ -1,0 +1,120 @@
+
+----------------------------------------------------------------------------
+n=4000000
+x=0
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005798340 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=5000
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004999638 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=61396
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005018711 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=152503
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004930496 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=214826
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005090237 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=322486
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004849434 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=3128036
+El numero se encuentra en el arreglo
+real (Tiempo total)  0.0004830360 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=6337399
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0023410320 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=10393545
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005171299 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=14700764
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005159378 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=187645041
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004789829 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=450057883
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0006358624 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=1295390003
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005190372 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=1360839354
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0017700195 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=1493283650
+El numero se encuentra en el arreglo
+real (Tiempo total)  0.0004541874 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=1843349527
+El numero se encuentra en el arreglo
+real (Tiempo total)  0.0005581379 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=1980098116
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004820824 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=2109248666
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004889965 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=2147445644
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0004708767 s
+
+----------------------------------------------------------------------------
+n=4000000
+x=2147470852
+El numero no se encuentra en el arreglo
+real (Tiempo total)  0.0005159378 s

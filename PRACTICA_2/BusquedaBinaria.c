@@ -34,11 +34,13 @@ if(argc!=3){
 	printf("\nIntroduzca el elemento a buscar y el tamaño del espacio de busqueda\n");
 	exit(1);
 } 
-
+double utime0, stime0, wtime0,utime1, stime1, wtime1;
 int x = atoi(argv[1]);
 int tam = atoi(argv[2]);
 int *A;
-A=malloc(sizeof(int)*10000000);
+ printf("\n----------------------------------------------------------------------------\n");
+ printf("tam=%d\nx=%d\n",tam,x);
+A=malloc(sizeof(int)*tam);
 
 
     for(int k=0;k<tam;k++){
@@ -46,9 +48,13 @@ A=malloc(sizeof(int)*10000000);
     }
 	 
     int n = tam*4 / sizeof(A[0]);  
-    int result = binarySearch(A, 0, n - 1, x); 
+    uswtime(&utime0, &stime0, &wtime0);
+    int result = binarySearch(A, 0, n - 1, x);
+    uswtime(&utime1, &stime1, &wtime1); 
     (result == -1) ? printf("\nEl elemento no esta presente en el arreglo\n") 
                    : printf("\nEl elemento se encuentra en el indice:%d\n", 
                             result); 
+    //Cálculo del tiempo de ejecución del programa
+	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
     return 0; 
 }
