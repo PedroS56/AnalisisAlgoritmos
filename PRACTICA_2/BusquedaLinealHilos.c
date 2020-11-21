@@ -5,37 +5,40 @@
 #include "tiempo.h"
 
 struct argumentos{
-	Arbin a;
-	int num;
+	int *arreglo;
+	int n;
+	int target;
+	char start;
 };
 
-void *buscaDerecha(void *argm){
-	struct argumentos *threadargs = (struct argumentos*) argm;
-	int estaEn = BuscarElementoDerecha(threadargs->num, threadargs->a);
-	if(estaEn==1)
-		printf("D: Encontrado\n");
+void *BusquedaLineal(void *args){
+	struct argumentos *argm = (struct argumentos*) args;
+	int i = argm->start;
+	while(i<(argm->n)){
+		if((argm->arreglo[i])==(argm->target)){
+			printf("Encontrado!\n");
+		}
+		i+=5;
+	}
 	int status = 0;
 	pthread_exit((void*)&status);
 }
 
-void *buscaIzquierda(void *argm){
-	struct argumentos *threadargs = (struct argumentos*) argm;
-	int estaEn = BuscarElementoIzquierda(threadargs->num, threadargs->a);
-	if(estaEn==1)
-		printf("I: Encontrado\n");
-	int status = 0;
-	pthread_exit((void*)&status);
-}
 
-void main(int argc, char *argv[]){	
-	int *numeros = NULL, i = 0, n = 0, m = 0, id1_stat = 0, id2_stat = 0;
+
+void main(int argc, char *argv[]){
+	int *numeros = NULL, i = 0, n = 0, target = 0; 
+	int eid[5]; //STATUS DE LOS HILOS
 	double utime0, stime0, wtime0,utime1, stime1, wtime1;
+
+	//UNA ESTRUCTURA PARA TODOS LOS HILOS
 	struct argumentos *args = NULL;
-	pthread_t id1,id2;
+	pthread_t hilos[5];
+
 	args = malloc(sizeof(struct argumentos));
-	Arbin a = Inicializar();
+	
 	n = atoi(argv[1]);
-	m = atoi(argv[2]);
+	target = atoi(argv[2]);
 	numeros = malloc(sizeof(int)*n);
 
 	if(numeros==NULL)
@@ -44,20 +47,22 @@ void main(int argc, char *argv[]){
 	for(i=0;i<n;i++){
 		scanf("%i",&numeros[i]);
 	}
-	
-	for(i = 0; i < n; i++){
-		a = Insertar(numeros[i], a);
-	}
 
-	args -> a = a;
-	args -> num = m;
-
+	args->arreglo = numeros;
+	args->n = n;
+	args->target = target;
+	//COMENZAMOS A MEDIR EL TIEMPO
 	uswtime(&utime0, &stime0, &wtime0);
 
-	pthread_create(&id1,NULL,buscaDerecha,(void*)args);
-	pthread_create(&id2,NULL,buscaIzquierda,(void*)args);
-	pthread_join(id1,(void*)&id1_stat);
-	pthread_join(id2,(void*)&id2_stat);
+	for(i=0;i<5;i++){
+		args->start = i;
+		pthread_create(&hilos[i],NULL,BusquedaLineal,(void*)args);
+		pthread_join(hilos[i],(void*)&eid[i]);
+	}
+
+	for(i=0;i<5;i++){
+		pthread_join(hilos[i],(void*)&eid[i]);
+	}
 
 	uswtime(&utime1, &stime1, &wtime1); 
 

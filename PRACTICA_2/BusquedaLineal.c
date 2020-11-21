@@ -9,6 +9,8 @@ LIBRERIAS A UTILIZAR
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include "tiempo.h"
+
 int main(int argc, char *argv[]){
 	int n = 0, i = 0, *numeros, target=0;
 	char encontrado='N';
@@ -44,10 +46,10 @@ int main(int argc, char *argv[]){
 	//Cálculo del tiempo de ejecución del programa
 	printf("\n");
 	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
-	// printf("user (Tiempo de procesamiento en CPU) %.10f s\n",  utime1 - utime0);
-	// printf("sys (Tiempo en acciónes de E/S)  %.10f s\n",  stime1 - stime0);
-	// printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
-	// printf("\n");
+	printf("user (Tiempo de procesamiento en CPU) %.10f s\n",  utime1 - utime0);
+	printf("sys (Tiempo en acciónes de E/S)  %.10f s\n",  stime1 - stime0);
+	printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
+	printf("\n");
 	
 	// //Mostrar los tiempos en formato exponecial
 	// printf("\n");
