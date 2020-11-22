@@ -14,13 +14,14 @@ struct argumentos{
 void *BusquedaLineal(void *args){
 	struct argumentos *argm = (struct argumentos*) args;
 	int i = argm->start;
+	int status = 1;
 	while(i<(argm->n)){
 		if((argm->arreglo[i])==(argm->target)){
-			printf("Encontrado!\n");
+			status = 0;
+			pthread_exit((void*)&status);
 		}
 		i+=5;
 	}
-	int status = 0;
 	pthread_exit((void*)&status);
 }
 
