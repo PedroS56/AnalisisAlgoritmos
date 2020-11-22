@@ -32,6 +32,7 @@ void *binarySearch(void *arg)
         if (arr[m] == x){ 
 	    printf("\nEl elemento se encuentra en el index:%i\n",m);
 	    cont=1;
+		break;
 	}
   
         if (arr[m] < x){ 
