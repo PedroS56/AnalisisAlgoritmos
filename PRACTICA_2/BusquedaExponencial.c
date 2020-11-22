@@ -22,25 +22,29 @@ int binarySearch(int arr[], int l, int r, int x)
 } 
 
 int exponentialSearch(int arr[],int size,int key){
-if(size==0){
-	return -1;
-}
-int bound = 1;
-if(arr[0]==key){
-return 0;
-}
-int i=1;
-while(i < size && arr[i] <= key){
-	i=i*2;
+    if(size==0){
+    	return -1;
+    }
 
-}
-int min;
-if(i<(size-1)){
-min=i;
-}
-else{
-min=(size-1);
-}
+    int bound = 1;
+    
+    if(arr[0]==key){
+        return 0;
+    }
+
+    int i=1;
+    while(i < size && arr[i] <= key){
+    	i=i*2;
+
+    }
+    
+    int min;
+    if(i<(size-1)){
+        min=i;
+    }
+    else{
+        min=(size-1);
+    }
 
 	return binarySearch(arr,i/2,min,key);
 

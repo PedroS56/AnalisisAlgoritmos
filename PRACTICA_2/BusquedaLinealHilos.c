@@ -58,7 +58,6 @@ void main(int argc, char *argv[]){
 	for(i=0;i<5;i++){
 		args->start = i;
 		pthread_create(&hilos[i],NULL,BusquedaLineal,(void*)args);
-		pthread_join(hilos[i],(void*)&eid[i]);
 	}
 
 	for(i=0;i<5;i++){
