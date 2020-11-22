@@ -9,34 +9,27 @@ struct argumentos{
 	int num;
 };
 
-void *buscaDerecha(void *argm){
+void *buscaArbol(void *argm){
 	struct argumentos *threadargs = (struct argumentos*) argm;
-	int estaEn = BuscarElementoDerecha(threadargs->num, threadargs->a);
+	int status = -1;
+	int estaEn = BuscarElemento(threadargs->num, threadargs->a);
 	if(estaEn==1)
-		printf("D: Encontrado\n");
-	int status = 0;
-	pthread_exit((void*)&status);
-}
-
-void *buscaIzquierda(void *argm){
-	struct argumentos *threadargs = (struct argumentos*) argm;
-	int estaEn = BuscarElementoIzquierda(threadargs->num, threadargs->a);
-	if(estaEn==1)
-		printf("I: Encontrado\n");
-	int status = 0;
+		status = 0;
 	pthread_exit((void*)&status);
 }
 
 void main(int argc, char *argv[]){	
-	int *numeros = NULL, i = 0, n = 0, m = 0, id1_stat = 0, id2_stat = 0;
+	int *numeros = NULL, i = 0, n = 0, target = 0, id1_stat = 0, id2_stat = 0;
 	double utime0, stime0, wtime0,utime1, stime1, wtime1;
 	struct argumentos *args = NULL;
 	pthread_t id1,id2;
 	args = malloc(sizeof(struct argumentos));
 	Arbin a = Inicializar();
 	n = atoi(argv[1]);
-	m = atoi(argv[2]);
+	target = atoi(argv[2]);
 	numeros = malloc(sizeof(int)*n);
+
+	args->num = target;
 
 	if(numeros==NULL)
 		exit(2);
@@ -49,18 +42,27 @@ void main(int argc, char *argv[]){
 		a = Insertar(numeros[i], a);
 	}
 
-	args -> a = a;
-	args -> num = m;
-
 	uswtime(&utime0, &stime0, &wtime0);
 
-	pthread_create(&id1,NULL,buscaDerecha,(void*)args);
-	pthread_create(&id2,NULL,buscaIzquierda,(void*)args);
+	if(ObtenerValor(a)>target)//Busqua por la izquierda
+		a = HijoIzq(a);
+	else //Busca por la derecha
+		a = HijoDer(a);
+
+	args->a = HijoIzq(a); //Creamos un hilo que recorra por la izquierda de mi sub arbol
+	pthread_create(&id1,NULL,buscaArbol,(void*)args);
+	args->a = HijoDer(a); //Creamos un hilo que recorra por la derecha de mi sub arbol
+	pthread_create(&id2,NULL,buscaArbol,(void*)args);
 	pthread_join(id1,(void*)&id1_stat);
+	
+	if(id1_stat==0)
+		printf("Encontrado!\n");
 	pthread_join(id2,(void*)&id2_stat);
+	if(id2_stat==0)
+		printf("Encontrado!\n");
 
 	uswtime(&utime1, &stime1, &wtime1); 
-
+ 
 	//Cálculo del tiempo de ejecución del programa
 	printf("\n");
 	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
