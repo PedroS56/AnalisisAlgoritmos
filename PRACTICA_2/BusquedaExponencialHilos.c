@@ -18,7 +18,7 @@ struct argumentos {
 	DEVUELVE: Una bandera que indica si ha encontrado o no el numero
 */
 void *binarySearch(void *args){
-	int status = -1;
+	int status = 0;
 	struct argumentos *bargs = (struct argumentos*) args;
 	int li = bargs -> li; //Empezmos a buscar desde aqui
 	int ls = bargs -> ls; //Terminamos la busqueda aca
@@ -26,8 +26,7 @@ void *binarySearch(void *args){
 	while (li <= ls) { 
         int index = li + (ls - li) / 2; 
         if (bargs->arr[index] == bargs->target){
-            status = 0; //Ha encontrado el numero
-            pthread_exit((void*)&status);
+            printf("Encontrado\n");
         }
         if (bargs->arr[index] < bargs->target)
             li = index + 1; 
@@ -103,12 +102,6 @@ void main(int argc, char *argv[]){
 	}
 
 	uswtime(&utime1, &stime1, &wtime1); 
-
-	for(i=0;i<4;i++){
-		if(eid[i]==0){
-			printf("Encontrado\n");
-		}
-	}
 
 	printf("\n");
 	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);

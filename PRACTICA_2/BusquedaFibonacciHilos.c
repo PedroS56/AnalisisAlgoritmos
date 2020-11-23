@@ -46,17 +46,16 @@ void *fibonacci(void *ags){
             // Elemento encontrado retorna S
             else
             {
-            	status = 0;
-    			pthread_exit((void*)&status);        	
+            	printf("Encontrado\n");
             } 
         } 
   
         // compara el ultimo elemento con x 
         if(fibMMm1 == 1 && (args->arr[offset+1]) == x) 
-            status = 0;
+            printf("Encontrado\n");
   
         //Elemento no encontrado retorna N */
-        status = -1;
+        status = 0;
 	pthread_exit((void*)&status);
 }
 
