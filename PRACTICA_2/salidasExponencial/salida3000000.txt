@@ -1,0 +1,160 @@
+
+----------------------------------------------------------------------------
+n=3000000
+x=0
+
+El elemento se encuentra en el indice:0
+
+real (Tiempo total)  0.0005140305 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=5000
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004668236 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=61396
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004820824 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=152503
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004470348 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=214826
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004720688 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=322486
+
+El elemento se encuentra en el indice:1612
+
+real (Tiempo total)  0.0004458427 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=3128036
+
+El elemento se encuentra en el indice:14726
+
+real (Tiempo total)  0.0004749298 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=6337399
+
+El elemento se encuentra en el indice:29545
+
+real (Tiempo total)  0.0006210804 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=10393545
+
+El elemento se encuentra en el indice:48375
+
+real (Tiempo total)  0.0004608631 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=14700764
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004479885 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=187645041
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004260540 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=450057883
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0048649311 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=1295390003
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004398823 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=1360839354
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004220009 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=1493283650
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0005249977 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=1843349527
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004830360 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=1980098116
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0006840229 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=2109248666
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0004520416 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=2147445644
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0006098747 s
+
+----------------------------------------------------------------------------
+n=3000000
+x=2147470852
+
+El elemento no esta presente en el arreglo
+
+real (Tiempo total)  0.0005068779 s
