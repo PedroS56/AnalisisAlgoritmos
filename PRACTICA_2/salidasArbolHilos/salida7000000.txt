@@ -1,0 +1,120 @@
+
+real (Tiempo total)  0.0896120071 s
+user (Tiempo de procesamiento en CPU) 0.0036900000 s
+sys (Tiempo en acciónes de E/S)  0.0003910000 s
+CPU/Wall   4.5540772160 % 
+
+
+real (Tiempo total)  0.1181571484 s
+user (Tiempo de procesamiento en CPU) 0.0024330000 s
+sys (Tiempo en acciónes de E/S)  0.0002360000 s
+CPU/Wall   2.2588561395 % 
+
+
+real (Tiempo total)  0.0590999126 s
+user (Tiempo de procesamiento en CPU) 0.0003930000 s
+sys (Tiempo en acciónes de E/S)  0.0040500000 s
+CPU/Wall   7.5177776096 % 
+
+
+real (Tiempo total)  0.0669608116 s
+user (Tiempo de procesamiento en CPU) 0.0039860000 s
+sys (Tiempo en acciónes de E/S)  0.0003790000 s
+CPU/Wall   6.5187381914 % 
+
+
+real (Tiempo total)  0.0683701038 s
+user (Tiempo de procesamiento en CPU) 0.0028050000 s
+sys (Tiempo en acciónes de E/S)  0.0042420000 s
+CPU/Wall   10.3071366059 % 
+
+
+real (Tiempo total)  0.0365419388 s
+user (Tiempo de procesamiento en CPU) 0.0005150000 s
+sys (Tiempo en acciónes de E/S)  0.0040540000 s
+CPU/Wall   12.5034416682 % 
+
+
+real (Tiempo total)  0.0113980770 s
+user (Tiempo de procesamiento en CPU) 0.0000000000 s
+sys (Tiempo en acciónes de E/S)  0.0028060000 s
+CPU/Wall   24.6181877633 % 
+
+
+real (Tiempo total)  0.0548660755 s
+user (Tiempo de procesamiento en CPU) 0.0030740000 s
+sys (Tiempo en acciónes de E/S)  0.0042740000 s
+CPU/Wall   13.3926108819 % 
+
+
+real (Tiempo total)  0.0139710903 s
+user (Tiempo de procesamiento en CPU) 0.0020490000 s
+sys (Tiempo en acciónes de E/S)  0.0002040000 s
+CPU/Wall   16.1261572928 % 
+
+
+real (Tiempo total)  0.1361870766 s
+user (Tiempo de procesamiento en CPU) 0.0024000000 s
+sys (Tiempo en acciónes de E/S)  0.0042690000 s
+CPU/Wall   4.8969404205 % 
+
+
+real (Tiempo total)  0.2909231186 s
+user (Tiempo de procesamiento en CPU) 0.0025430000 s
+sys (Tiempo en acciónes de E/S)  0.0042580000 s
+CPU/Wall   2.3377310242 % 
+
+
+real (Tiempo total)  0.0866079330 s
+user (Tiempo de procesamiento en CPU) 0.0037260000 s
+sys (Tiempo en acciónes de E/S)  0.0003560000 s
+CPU/Wall   4.7131941111 % 
+
+
+real (Tiempo total)  0.0546150208 s
+user (Tiempo de procesamiento en CPU) 0.0000000000 s
+sys (Tiempo en acciónes de E/S)  0.0079120000 s
+CPU/Wall   14.4868570790 % 
+
+
+real (Tiempo total)  0.0378601551 s
+user (Tiempo de procesamiento en CPU) 0.0000000000 s
+sys (Tiempo en acciónes de E/S)  0.0035150000 s
+CPU/Wall   9.2841669301 % 
+
+
+real (Tiempo total)  0.0520529747 s
+user (Tiempo de procesamiento en CPU) 0.0016900000 s
+sys (Tiempo en acciónes de E/S)  0.0041760000 s
+CPU/Wall   11.2692887077 % 
+
+
+real (Tiempo total)  0.0349102020 s
+user (Tiempo de procesamiento en CPU) 0.0048440000 s
+sys (Tiempo en acciónes de E/S)  0.0044980000 s
+CPU/Wall   26.7600857564 % 
+
+
+real (Tiempo total)  0.0419681072 s
+user (Tiempo de procesamiento en CPU) 0.0000000000 s
+sys (Tiempo en acciónes de E/S)  0.0075680000 s
+CPU/Wall   18.0327408136 % 
+
+
+real (Tiempo total)  0.1929709911 s
+user (Tiempo de procesamiento en CPU) 0.0009220000 s
+sys (Tiempo en acciónes de E/S)  0.0040990000 s
+CPU/Wall   2.6019454896 % 
+
+
+real (Tiempo total)  0.0716431141 s
+user (Tiempo de procesamiento en CPU) 0.0049660000 s
+sys (Tiempo en acciónes de E/S)  0.0044770000 s
+CPU/Wall   13.1806107537 % 
+
+
+real (Tiempo total)  0.0325660706 s
+user (Tiempo de procesamiento en CPU) 0.0048580000 s
+sys (Tiempo en acciónes de E/S)  0.0004720000 s
+CPU/Wall   16.3667274218 % 
+

@@ -1,9 +1,9 @@
 #!/bin/bash
-gcc BusquedaFibonacci.c tiempo.c -o fibonacci
+gcc BusquedaArbolHilos.c tiempo.c -pthread  -o  abHilos
 for (( n=1000000; n<=10000000; n+=1000000 ))
 do
     for x in $(cat tamProblema.txt); 
-    do ./fibonacci $n $x < Ordenado10millones.txt >> salidasFibonacci/salida$n.txt; 
+    do ./abHilos $n $x < numeros10M.txt >> salidasArbolHilos/salida$n.txt; 
     done
 done
 
