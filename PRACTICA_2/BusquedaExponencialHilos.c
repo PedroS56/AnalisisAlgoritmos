@@ -100,23 +100,20 @@ void main(int argc, char *argv[]){
 
 	for(i=0;i<4;i++){
 		pthread_join(id[i],(void*)&eid[i]);
+	}
+
+	uswtime(&utime1, &stime1, &wtime1); 
+
+	for(i=0;i<4;i++){
 		if(eid[i]==0){
-			uswtime(&utime1, &stime1, &wtime1); 
 			printf("Encontrado\n");
-			exit(0);	
 		}
 	}
 
-	//Si llego hasta aca es porque no lo encontro
-	uswtime(&utime1, &stime1, &wtime1); 
-	printf("No encontrado\n");
-	
 	printf("\n");
 	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
-	printf("user (Tiempo de procesamiento en CPU) %.10f s\n",  utime1 - utime0);
-	printf("sys (Tiempo en acciónes de E/S)  %.10f s\n",  stime1 - stime0);
-	printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
-	printf("\n");
+	printf("------------------------------\n");
+	
 
 	return;
 }

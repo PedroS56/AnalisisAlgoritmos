@@ -1,9 +1,9 @@
 #!/bin/bash
-gcc BusquedaArbolHilos.c tiempo.c -pthread  -o  abHilos
+gcc BusquedaExponencialHilos.c tiempo.c -pthread  -o  expoHilos
 for (( n=1000000; n<=10000000; n+=1000000 ))
 do
     for x in $(cat tamProblema.txt); 
-    do ./abHilos $n $x < numeros10M.txt >> salidasArbolHilos/salida$n.txt; 
+    do ./expoHilos $n $x < 10millones.txt >> salidasExponencialHilos/salida$n.txt; 
     done
 done
 

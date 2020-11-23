@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include "tiempo.h"
 
 struct argumentos {
 	int *arr;
@@ -13,7 +14,6 @@ struct argumentos {
 int min(int x, int y) { return (x<=y)? x : y; }
 
 void *fibonacci(void *ags){
-    printf("Entro hilo1\n");
 	struct argumentos *args = (struct argumentos*) ags;
 	int status = 0, offset = 0;
 	// Inizializa numeros fibonacci  
@@ -65,6 +65,7 @@ void main(int argc, char *argv[]){
 	pthread_t id1 = 0,id2 = 0;
 	int n = 0, target = 0, *numeros, i = 0;
 	int eid1 = -1, eid2 = -1;
+    double utime0, stime0, wtime0,utime1, stime1, wtime1;
 
 	int fibMMm2 = 0; // (m-2)'th Fibonacci No. 
     int fibMMm1 = 1; // (m-1)'th Fibonacci No. 
@@ -92,6 +93,7 @@ void main(int argc, char *argv[]){
 	por lo tanto, se propone la creacion de dos hilos, uno busca
 	en índice < 18 y otro en índice > 18*/
 	i = 0;
+    uswtime(&utime0, &stime0, &wtime0);
 	// fibM va a guardar el mas pequeño
     while (fibM < n) 
     { 
@@ -110,15 +112,25 @@ void main(int argc, char *argv[]){
     margs -> fib2 = fibMMm2;
 	margs -> fib1 = fibMMm1;
 	pthread_create(&id2,NULL,fibonacci,(void*)margs);
-  	
+
+  	uswtime(&utime1, &stime1, &wtime1); 
+
   	pthread_join(id1,(void*)&eid1);
   	if(eid1==0)
-  		printf("Encontrado por hilo 1\n");
+        {printf("--------------------------------\n");
+                  printf("Encontrado por hilo 1\n");}
   	pthread_join(id2,(void*)&eid2);
-  	if(eid2==0)
-  		printf("Encontrado por hilo 2\n");
-  	if(eid1!=0 && eid2!=0)
-  		printf("No encontrado\n");
+  	if(eid2==0){
+            printf("--------------------------------\n");
+              printf("Encontrado por hilo 2\n");}
+  	if(eid1!=0 && eid2!=0){
+            printf("--------------------------------\n");
+              printf("No encontrado\n");}
+
+    printf("\n");
+    printf("n=%i\n",n);
+    printf("x=%i\n",target);
+    printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
   	
 	return;
 }
