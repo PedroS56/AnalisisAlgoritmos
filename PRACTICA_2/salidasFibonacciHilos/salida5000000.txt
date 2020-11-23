@@ -1,120 +1,108 @@
---------------------------------
-No encontrado
 
 n=5000000
 x=0
-real (Tiempo total)  0.0000591278 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002858639 s
+-------------------------
 
 n=5000000
 x=5000
-real (Tiempo total)  0.0000629425 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0028190613 s
+-------------------------
 
 n=5000000
 x=61396
-real (Tiempo total)  0.0000538826 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003600121 s
+-------------------------
 
 n=5000000
 x=152503
-real (Tiempo total)  0.0000629425 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003628731 s
+-------------------------
 
 n=5000000
 x=214826
-real (Tiempo total)  0.0000619888 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002899170 s
+-------------------------
+Encontrado
+Encontrado
 
 n=5000000
 x=322486
-real (Tiempo total)  0.0001108646 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003509521 s
+-------------------------
+Encontrado
+Encontrado
 
 n=5000000
 x=3128036
-real (Tiempo total)  0.0000498295 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002791882 s
+-------------------------
+Encontrado
+Encontrado
 
 n=5000000
 x=6337399
-real (Tiempo total)  0.0000531673 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003049374 s
+-------------------------
+Encontrado
+Encontrado
 
 n=5000000
 x=10393545
-real (Tiempo total)  0.0000538826 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003070831 s
+-------------------------
 
 n=5000000
 x=14700764
-real (Tiempo total)  0.0000569820 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002899170 s
+-------------------------
 
 n=5000000
 x=187645041
-real (Tiempo total)  0.0000710487 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002751350 s
+-------------------------
 
 n=5000000
 x=450057883
-real (Tiempo total)  0.0000560284 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002779961 s
+-------------------------
 
 n=5000000
 x=1295390003
-real (Tiempo total)  0.0000720024 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003199577 s
+-------------------------
 
 n=5000000
 x=1360839354
-real (Tiempo total)  0.0000600815 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003168583 s
+-------------------------
 
 n=5000000
 x=1493283650
-real (Tiempo total)  0.0000598431 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003130436 s
+-------------------------
 
 n=5000000
 x=1843349527
-real (Tiempo total)  0.0000591278 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003120899 s
+-------------------------
 
 n=5000000
 x=1980098116
-real (Tiempo total)  0.0000610352 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0002980232 s
+-------------------------
 
 n=5000000
 x=2109248666
-real (Tiempo total)  0.0000641346 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003008842 s
+-------------------------
 
 n=5000000
 x=2147445644
-real (Tiempo total)  0.0000619888 s
---------------------------------
-No encontrado
+real (Tiempo total)  0.0003080368 s
+-------------------------
 
 n=5000000
 x=2147470852
-real (Tiempo total)  0.0000579357 s
+real (Tiempo total)  0.0003070831 s
+-------------------------

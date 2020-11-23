@@ -39,7 +39,7 @@ void *binarySearch(void *args){
 
 void main(int argc, char *argv[]){
 	int *numeros = NULL, n = 0, i = 0, target = 0, li = 0, ls = 0, aux = 0;
-	struct argumentos *margs = NULL;
+	struct argumentos *margs[4];
 	pthread_t id[4];
 	int eid[4]; //Status del hilo
 	double utime0, stime0, wtime0,utime1, stime1, wtime1;
@@ -48,7 +48,10 @@ void main(int argc, char *argv[]){
 	target = atoi(argv[2]);
 
 	numeros = malloc(sizeof(int)*n);
-	margs = malloc(sizeof(struct argumentos));
+	
+	for(i=0;i<4;i++){
+		margs[i] = malloc(sizeof(struct argumentos));
+	}
 
 	if(numeros==NULL)
 		exit(2);
@@ -57,8 +60,10 @@ void main(int argc, char *argv[]){
 		scanf("%i",&numeros[i]);
 	}
 
-	margs->arr = numeros;
-	margs->target = target;
+	for(i=0;i<4;i++){
+		margs[i]->target=target;
+		margs[i]->arr=numeros;
+	}
 
 	//Comenzamos el algoritmo exponencial
 	uswtime(&utime0, &stime0, &wtime0);
@@ -67,6 +72,9 @@ void main(int argc, char *argv[]){
 		//Aqui salimos del programa de una buena vez
 		uswtime(&utime1, &stime1, &wtime1); 
 		printf("Encontrado en la posicion 0\n");
+		printf("\n");
+		printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
+		printf("------------------------------\n");
 		exit(0);
 	}
 
@@ -81,21 +89,20 @@ void main(int argc, char *argv[]){
 		ls = i; //Terminamos de buscar aqui
 	else
 		ls = (n-1); //Terminamos de buscar en la ultima posicion del arreglo
-
+	margs[0]->li=li;
 	//No lo hago con for para no ensuciar tanto
 	ls = (ls-li)/4;
-	margs->li=li;
-	margs->ls=ls;
-	pthread_create(&id[0],NULL,binarySearch,(void*)margs);
-	margs->li=ls;
-	margs->ls=ls*2;
-	pthread_create(&id[1],NULL,binarySearch,(void*)margs);
-	margs->li=ls*2;
-	margs->ls=ls*3;
-	pthread_create(&id[2],NULL,binarySearch,(void*)margs);
-	margs->li=ls*3;
-	margs->ls=ls*4;
-	pthread_create(&id[3],NULL,binarySearch,(void*)margs);
+	margs[0]->ls=li+ls;
+	pthread_create(&id[0],NULL,binarySearch,(void*)margs[0]);
+	margs[1]->li=li+ls;
+	margs[1]->ls=li+ls*2;
+	pthread_create(&id[1],NULL,binarySearch,(void*)margs[1]);
+	margs[2]->li=li+ls*2;
+	margs[2]->ls=li+ls*3;
+	pthread_create(&id[2],NULL,binarySearch,(void*)margs[2]);
+	margs[3]->li=li+ls*3;
+	margs[3]->ls=li+ls*4;
+	pthread_create(&id[3],NULL,binarySearch,(void*)margs[3]);
 
 	for(i=0;i<4;i++){
 		pthread_join(id[i],(void*)&eid[i]);

@@ -1,58 +1,67 @@
 Encontrado en la posicion 0
 
-real (Tiempo total)  0.0018508434 s
+real (Tiempo total)  0.0000011921 s
 ------------------------------
 
-real (Tiempo total)  0.0002789497 s
+real (Tiempo total)  0.0003690720 s
+------------------------------
+
+real (Tiempo total)  0.0004298687 s
+------------------------------
+
+real (Tiempo total)  0.0003399849 s
+------------------------------
+
+real (Tiempo total)  0.0003621578 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0003769398 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0003440380 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0003540516 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0003290176 s
 ------------------------------
 
 real (Tiempo total)  0.0003311634 s
 ------------------------------
 
-real (Tiempo total)  0.0003321171 s
+real (Tiempo total)  0.0003378391 s
 ------------------------------
 
-real (Tiempo total)  0.0009410381 s
+real (Tiempo total)  0.0003671646 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0003778934 s
 ------------------------------
 
-real (Tiempo total)  0.0023901463 s
+real (Tiempo total)  0.0003550053 s
+------------------------------
+Encontrado
+
+real (Tiempo total)  0.0004599094 s
 ------------------------------
 
-real (Tiempo total)  0.0009219646 s
+real (Tiempo total)  0.0003509521 s
 ------------------------------
 
-real (Tiempo total)  0.0019259453 s
+real (Tiempo total)  0.0003838539 s
 ------------------------------
 
-real (Tiempo total)  0.0013558865 s
+real (Tiempo total)  0.0003490448 s
 ------------------------------
 
-real (Tiempo total)  0.0071289539 s
+real (Tiempo total)  0.0003440380 s
 ------------------------------
 
-real (Tiempo total)  0.0058388710 s
-------------------------------
-
-real (Tiempo total)  0.0040051937 s
-------------------------------
-
-real (Tiempo total)  0.0009391308 s
-------------------------------
-
-real (Tiempo total)  0.0061199665 s
-------------------------------
-
-real (Tiempo total)  0.0049698353 s
-------------------------------
-
-real (Tiempo total)  0.0019869804 s
-------------------------------
-
-real (Tiempo total)  0.0041978359 s
-------------------------------
-
-real (Tiempo total)  0.0002820492 s
-------------------------------
-
-real (Tiempo total)  0.0016770363 s
+real (Tiempo total)  0.0003499985 s
 ------------------------------

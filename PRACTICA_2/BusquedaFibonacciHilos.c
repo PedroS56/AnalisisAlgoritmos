@@ -27,6 +27,7 @@ void *fibonacci(void *ags){
             // Check if fibMm2 is a valid location 
             int i = min(offset+fibMMm2, n-1); 
             // Si x es maqyor que el valor de index fibMn2, corta el subarray 
+            
             if ((args->arr[i]) < x) 
             { 
                 fibM = fibMMm1; 
@@ -47,15 +48,15 @@ void *fibonacci(void *ags){
             else
             {
             	printf("Encontrado\n");
+            	pthread_exit((void*)&status);
+
             } 
         } 
   
         // compara el ultimo elemento con x 
         if(fibMMm1 == 1 && (args->arr[offset+1]) == x) 
             printf("Encontrado\n");
-  
-        //Elemento no encontrado retorna N */
-        status = 0;
+
 	pthread_exit((void*)&status);
 }
 
@@ -111,25 +112,14 @@ void main(int argc, char *argv[]){
     margs -> fib2 = fibMMm2;
 	margs -> fib1 = fibMMm1;
 	pthread_create(&id2,NULL,fibonacci,(void*)margs);
-
-  	uswtime(&utime1, &stime1, &wtime1); 
-
-  	pthread_join(id1,(void*)&eid1);
-  	if(eid1==0)
-        {printf("--------------------------------\n");
-                  printf("Encontrado por hilo 1\n");}
+	pthread_join(id1,(void*)&eid1);
   	pthread_join(id2,(void*)&eid2);
-  	if(eid2==0){
-            printf("--------------------------------\n");
-              printf("Encontrado por hilo 2\n");}
-  	if(eid1!=0 && eid2!=0){
-            printf("--------------------------------\n");
-              printf("No encontrado\n");}
+  	uswtime(&utime1, &stime1, &wtime1); 
 
     printf("\n");
     printf("n=%i\n",n);
     printf("x=%i\n",target);
     printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
-  	
+  	printf("-------------------------\n");
 	return;
 }
