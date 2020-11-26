@@ -12,23 +12,23 @@ for file in files:
 	for row in range(0,20): #Son 20 columnas las de cada tabla
 		lin1 = file.readline() #Leemos la primera fila que es un salto de linea
 		if lin1 == 'Encontrado\n':
+			estaEn = 's'
 			lin2 = file.readline()
 			if lin2 == 'Encontrado\n':
 				lin3 = file.readline()
 				if lin3 == 'Encontrado\n':
 					file.readline() #salto de linea
-					n = file.readline()[2:]
-					x = file.readline()[2:]
-					estaEn = 'n'
+					n = file.readline()[2:-1]
+					x = file.readline()[2:-1]
+					print("lin3, x = ",x)
 					tiempo = file.readline().split(' ')[4]
 			else:
-				n = file.readline()[2:]
-				x = file.readline()[2:]
-				estaEn = 'n'
+				n = file.readline()[2:-1]
+				x = file.readline()[2:-1]
 				tiempo = file.readline().split(' ')[4]	
 		else:
-			n = file.readline()[2:]
-			x = file.readline()[2:]
+			n = file.readline()[2:-1]
+			x = file.readline()[2:-1]
 			estaEn = 'n'
 			tiempo = file.readline().split(' ')[4]
 		file.readline()

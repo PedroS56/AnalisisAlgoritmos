@@ -71,7 +71,6 @@ real (Tiempo total)  0.0183570385 s
 Encontrado
 Encontrado
 Encontrado
-Encontrado
 
 n=6000000
 x=1493283650
