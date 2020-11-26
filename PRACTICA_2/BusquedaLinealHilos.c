@@ -17,7 +17,7 @@ void *BusquedaLineal(void *args){
 	int status = 1;
 	while(i<(argm->n)){
 		if((argm->arreglo[i])==(argm->target)){
-			status = 0;
+			printf("Encontrado\n");
 			pthread_exit((void*)&status);
 		}
 		i+=5;
@@ -68,11 +68,10 @@ void main(int argc, char *argv[]){
 
 	//Cálculo del tiempo de ejecución del programa
 	printf("\n");
+	printf("n=%i\n",n);
+	printf("x=%i\n",target);
 	printf("real (Tiempo total)  %.10f s\n",  wtime1 - wtime0);
-	printf("user (Tiempo de procesamiento en CPU) %.10f s\n",  utime1 - utime0);
-	printf("sys (Tiempo en acciónes de E/S)  %.10f s\n",  stime1 - stime0);
-	printf("CPU/Wall   %.10f %% \n",100.0 * (utime1 - utime0 + stime1 - stime0) / (wtime1 - wtime0));
-	printf("\n");
+	printf("-----------------------------\n");
 
 	return;
 }
