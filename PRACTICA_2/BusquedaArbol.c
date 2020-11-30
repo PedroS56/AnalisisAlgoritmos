@@ -11,6 +11,13 @@ LIBRERIAS A UTILIZAR
 #include <stdlib.h>
 #include "Arbin.h"
 
+/*
+	FUNCION: main.
+	RECIBE: Tamaño de problema (argv[1]), Numero a buscar (argv[2]).
+	DESCRIPCION: Realiza una busqueda por arbo binario.
+	DEVUELVE: El tiempo que tarda en ejecutarse el algoritmo.
+	OBSERVACIONES: argv[1] DEBE SER MAYOR A 0.
+*/
 void main(int argc, char *argv[]){
 	int n=0, *numeros=NULL, i=0, num=0;
 	double utime0, stime0, wtime0,utime1, stime1, wtime1;

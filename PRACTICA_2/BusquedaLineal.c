@@ -11,6 +11,13 @@ LIBRERIAS A UTILIZAR
 #include <stdlib.h>
 #include "tiempo.h"
 
+/*
+	FUNCION: main
+	RECIBE: Tamaño de problema (argv[1]), Numero a buscar (argv[2]).
+	DESCRIPCION: Realiza una busqueda lineal.
+	DEVUELVE: El tiempo que tarda en ejecutarse el algoritmo.
+	OBSERVACIONES: argv[1] DEBE SER MAYOR A 0.
+*/
 int main(int argc, char *argv[]){
 	int n = 0, i = 0, *numeros, target=0;
 	char encontrado='N';

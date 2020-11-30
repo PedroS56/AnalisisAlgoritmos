@@ -15,7 +15,7 @@ struct argumentos {
 	DESCRIPCION: Realiza una busqueda binaria en el intervalo dado
 	RECIBE: (Struct) args que contienen los limites superior e inferior para acotar la busqueda, el numero a 
 			buscar y el arreglo donde buscar.
-	DEVUELVE: Una bandera que indica si ha encontrado o no el numero
+	DEVUELVE: Imprime si ha encontrado el numero 
 */
 void *binarySearch(void *args){
 	int status = 0;
@@ -37,6 +37,14 @@ void *binarySearch(void *args){
 	pthread_exit((void*)&status);
 }
 
+/*
+	FUNCION: main
+	RECIBE: Tamaño de problema (argv[1]), Numero a buscar (argv[2]).
+	DESCRIPCION: Realiza la identificacion de limites del algoritmo de busqueda
+		exponencial, posteriormente crea hilos que se encargan de la busqueda binaria.
+	DEVUELVE: El tiempo que tarda en ejecutarse el algoritmo.
+	OBSERVACIONES: argv[1] DEBE SER MAYOR A 0.
+*/
 void main(int argc, char *argv[]){
 	int *numeros = NULL, n = 0, i = 0, target = 0, li = 0, ls = 0, aux = 0;
 	struct argumentos *margs[4];

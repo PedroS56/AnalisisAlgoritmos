@@ -103,6 +103,16 @@ Arbin Insertar(Elem e,Arbin d){
 			return CrearNodo(ObtenerValor(d),HijoIzq(d),Insertar(e,HijoDer(d)));
 }
 
+/*
+	FUNCION: BuscarElemento.
+	RECIBE: (Elem) Un elemento, (Arbin) La raiz a un arbol binario.
+	DESCRIPCION: Recorre el arbol binario dado en busca del elemento especificado.
+		El recorrido se realiza en el subarbol derecho o izquierdo de la raiz,
+		según se verifique el tamaño de elemento que contiene la raiz contra el 
+		numero a buscar.
+	DEVUELVE: TRUE en caso de encontrar el elemento, FALSE en caso de no encontrar nada.
+	OBSERVACIONES: a DEBE SER DIFERENTE DE NULL.
+*/
 boolean BuscarElemento(Elem e, Arbin a){
 	//Primero, comprobamos el valor que tenemos en el nodo a
 	while(a!=NULL){//Mientras no encontremos una hoja

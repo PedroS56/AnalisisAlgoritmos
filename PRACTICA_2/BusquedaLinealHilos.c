@@ -11,6 +11,13 @@ struct argumentos{
 	char start;
 };
 
+/*
+	FUNCION: fibonacci
+    DESCRIPCION: Realiza una busqueda lineal empezando en el indice indicado
+    RECIBE: (Struct) args que contiene el indice donde inicia la busqueda, 
+    	el numero a buscar y el arreglo donde buscar.
+    DEVUELVE: Imprime si ha encontrado el numero 
+*/
 void *BusquedaLineal(void *args){
 	struct argumentos *argm = (struct argumentos*) args;
 	int i = argm->start;
@@ -26,7 +33,14 @@ void *BusquedaLineal(void *args){
 }
 
 
-
+/*
+	FUNCION: main
+	RECIBE: Tamaño de problema (argv[1]), Numero a buscar (argv[2]).
+	DESCRIPCION: Lanza cinco hilos que realizan una busqueda lineal desde
+		distintos indices.
+	DEVUELVE: El tiempo que tarda en ejecutarse el algoritmo.
+	OBSERVACIONES: argv[1] DEBE SER MAYOR A 0.
+*/
 void main(int argc, char *argv[]){
 	int *numeros = NULL, i = 0, n = 0, target = 0; 
 	int eid[5]; //STATUS DE LOS HILOS

@@ -13,6 +13,13 @@ struct argumentos {
 
 int min(int x, int y) { return (x<=y)? x : y; }
 
+/*
+    FUNCION: fibonacci
+    DESCRIPCION: Realiza una busqueda Fibonacci en el intervalo dado
+    RECIBE: (Struct) args que contienen los numeros Fibonacci donde inicia la busqueda, 
+    el numero a buscar y el arreglo donde buscar.
+    DEVUELVE: Imprime si ha encontrado el numero 
+*/
 void *fibonacci(void *ags){
 	struct argumentos *args = (struct argumentos*) ags;
 	int status = 0, offset = 0;
@@ -60,6 +67,13 @@ void *fibonacci(void *ags){
 	pthread_exit((void*)&status);
 }
 
+/*
+    FUNCION: main
+    RECIBE: Tamaño de problema (argv[1]), Numero a buscar (argv[2]).
+    DESCRIPCION: Realiza la busqueda Fibonacci utilizando dos hilos.
+    DEVUELVE: El tiempo que tarda en ejecutarse el algoritmo.
+    OBSERVACIONES: argv[1] DEBE SER MAYOR A 0.
+*/
 void main(int argc, char *argv[]){
 	struct argumentos *margs = NULL;
 	pthread_t id1 = 0,id2 = 0;

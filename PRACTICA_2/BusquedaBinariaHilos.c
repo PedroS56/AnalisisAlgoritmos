@@ -59,17 +59,17 @@ if(argc!=3){
 	exit(1);
 } 
 
-p.key = atoi(argv[1]);
-int tam = atoi(argv[2]);
-double utime0, stime0, wtime0,utime1, stime1, wtime1;
-p.A=malloc(sizeof(int)*10000000);
+    p.key = atoi(argv[1]);
+    int tam = atoi(argv[2]);
+    double utime0, stime0, wtime0,utime1, stime1, wtime1;
+    p.A=malloc(sizeof(int)*10000000);
 
 
     for(int k=0;k<tam;k++){
 	scanf("%d",&p.A[k]);
     }
 	 
-p.n = tam*4 / sizeof(p.A[0]);  
+    p.n = tam*4 / sizeof(p.A[0]);  
 	
     uswtime(&utime0, &stime0, &wtime0);
     for(int l=0;l<Hilos;l++){
