@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Animerge</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		
+		body{
+			background-color: #d6ebee;
+		}
+
+		.container{
+			width: 70vw;
+			height: 70vh;
+			margin: auto;
+			background-color: #d6ebee;
+		}
+
+		.controls{
+			margin: auto;
+			align-content: center;
+			align-items: center;
+			text-align: center;
+		}
+
+		.controls button, input{
+			width: 10em;
+			height: 2em;
+			background-color: #97cadb;
+			color: #001b48;
+			border: #001b48 solid;
+			font-size: 15px;
+			border-radius: 10px;
+			margin-top: 1em;
+			font-family: 'Quicksand', sans-serif;
+			text-align: center;
+		}
+
+		input::placeholder {
+		  color: #ffff;
+		}
+
+		.animation-container{
+			margin: auto;
+			background-color: #d6ebee;
+			text-align: center;
+			align-items: center;
+			align-content: center;
+			margin-top: 5em;	
+		}
+
+		.element{
+			background-color: #d6ebee;
+			width: 30px;
+			height: 30px;
+			color: #001b48;
+			margin-left: 1em;
+			display: inline-block;
+			text-align: center;
+			border: #001b48 solid;
+			font-size: 15px;
+			font-family: 'Quicksand', sans-serif;
+			transition: transform 1s ease-in-out;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="controls">
+			<input id="string-values" type="text" placeholder="1,2,3,4,5">
+			<button onclick="createElements()">Crear arreglo</button>
+			<button onclick="aniMerge()">Animar</button>
+		</div>
+		<div id="container" class="animation-container"></div>
+	</div>
+	<script type="text/javascript" src="anime.min.js"></script>
+	<script type="text/javascript">
+
+		var elems =[];
+
+		/*RECIBE: Imlicitamente una string que contiene os alores el rregloa crear*/
+		function createElements(){
+			
+			var values = document.getElementById('string-values').value;
+			var container = document.getElementById('container');
+			var elements = values.split(',');
+			
+			elements.forEach(e => {
+				//Creamos un nuevo div con el número adentro 
+				var new_div = document.createElement('div');
+				var new_content = document.createTextNode(e);
+				new_div.id = e;
+				elems.push(e);
+				new_div.classList.add("element");
+				new_div.appendChild(new_content);
+				container.appendChild(new_div);
+			});
+
+		}
+
+		function merge(left, right){
+		
+			let result = []; // the array to hold results.
+			let i = 0; 
+			let j = 0;
+
+			// as the pseudo-code implies, we have to loop through the 
+			// arrays at the same time and it has to be done once.
+			// note that if one array completes its iteration, we will
+			// have to stop the while loop.
+
+			while(i < left.length && j < right.length){
+				// compare the elements one at a time.
+				if(left[i] > right[j]) {
+					result.push(right[j]);
+					//Esto se debe animar
+					j++;
+				} else {
+					result.push(left[i]);
+					//Esto se debe animar
+					i++;
+				}
+			}
+
+			// these other while loops checks if there's some item left
+			// in the arrays so that we can push their elements in the result array.
+			while(i < left.length){
+				result.push(left[i]);
+				//Esto se debe animar
+				i++;
+			}
+
+			while(j < right.length){
+				result.push(right[j]);
+				//Esto se debe animar
+				j++;
+			}
+
+	  		return result;
+		}
+		
+
+		function mergeSort(arr){
+			
+			if(arr.length <= 1) return arr;
+			// remember that we said merge sort uses divide and conquer
+			// algorithm pattern
+
+			// it firsts know the half point of the array.
+			let halfPoint = Math.ceil(arr.length / 2);
+
+			// and then splice the array from the beginning up to the half point.
+			// but for the fact that merge sort needs the array to be of one element, it will keep splicing that half till it fulfills the condition of having one element array.
+
+			let firstHalf = mergeSort(arr.splice(0, halfPoint));
+
+			//Coloreamos la primera parte
+			firstHalf.forEach(e=>{
+				var element = document.getElementById(e);
+				element.style.backgroundColor = "#01babe";
+			});
+
+			// second array from the half point up to the end of the array.
+			let secondHalf = mergeSort(arr.splice(-halfPoint));
+
+			//Coloreamos la segunda parte
+			secondHalf.forEach(e=>{
+				var element = document.getElementById(e);
+				element.style.backgroundColor = "#97cadb";
+			});
+
+			// merge the array back and return the result.
+			// note that we are using the helper function we created above.
+			return merge(firstHalf, secondHalf);
+		}
+		
+		function aniMerge(){
+			
+			console.log('----------------\nAntes del merge\n---------------------');
+			elems.forEach(e=>console.log(e));
+			var new_data = mergeSort(elems);
+			console.log('----------------\nDespues del merge\n---------------------');
+			new_data.forEach(e=>console.log(e));
+
+		}		
+
+	</script>
+</body>
+</html>
