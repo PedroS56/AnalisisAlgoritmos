@@ -86,7 +86,7 @@
 	<script type="text/javascript">
 
 		var elements = [];
-		var posiciones = {};
+		var coords = [];
 		var left_parts = [];
 		var right_parts = [];
 
@@ -102,7 +102,7 @@
 				elements.push(parseInt(e,10));
 				x += 50;
 				//Guardamos el número original y su posición original
-				posiciones[e] = x;
+				coords.push(x);
 				//Creamos un nuevo div con el número adentro 
 				var new_div = document.createElement('div');
 				var new_content = document.createTextNode(e);
@@ -113,7 +113,7 @@
 				new_div.appendChild(new_content);
 				container.appendChild(new_div);
 			});
-			console.log(posiciones);
+
 		}
 
 		function merge(left, right, posy){
@@ -145,8 +145,8 @@
 			if(arr.length <= 1) return arr;
 			let halfPoint = Math.ceil(arr.length / 2);
 			let firstHalf = mergeSort(arr.splice(0, halfPoint));
-			left_parts.push(firstHalf);
 			let secondHalf = mergeSort(arr.splice(-halfPoint));
+			left_parts.push(firstHalf);
 			right_parts.push(secondHalf);
 			return merge(firstHalf, secondHalf,250);
 		}
@@ -155,97 +155,36 @@
 			return new Promise(resolve => setTimeout(resolve, ms));
 		}
 
-
 		async function anime(){
-			let x = 100;
-			var halfs = document.getElementById('halfs');
+			//let x = 100;
+			//var halfs = document.getElementById('halfs');
 			/*Vamos a animar primero la parte izquierda del arreglo total*/
 			let m = Math.floor(left_parts.length/2);
 			console.log('El punto medio es: '+m);
 			for(let i = 0; i <= (m-1); i++){
+
+				if ( left_parts[i].length > 1)
+					mitades.push(left_parts[i]);
+
 				left_parts[i].forEach(e => {
 					my_div = document.getElementById(e);
 					my_div.style.backgroundColor = 'yellow';
 					my_div.style.transform = 'translateY(100px)';
-
 				});
 				right_parts[i].forEach(e => {
-					my_div = document.getElementById(e);
-					my_div.style.backgroundColor = 'green';
-					my_div.style.transform = 'translateY(100px)';
-				});
-				await sleep(2000);
-				//Hacemos los cambios
-				var cambios = left_parts[i+1];			
-				console.log('mis cambios');
-				cambios.forEach(e => {
-					var div = document.getElementById('half-'+e);
-					if(div == null){
-						x+=50;
-						var new_div = document.createElement('div');
-						var new_content = document.createTextNode(e);
-						new_div.id = 'half-'+e;
-						new_div.classList.add("element");
-						new_div.style.top = '300px';
-						new_div.style.left = x + 'px'; 
-						new_div.appendChild(new_content);
-						halfs.appendChild(new_div);
-					}
-				});
-				console.log(cambios);
-				await sleep(2000);
-				//Terminamos los cambios, subimos el arreglo
-				left_parts[i].forEach(e => {
-					my_div = document.getElementById(e);
-					my_div.style.backgroundColor = 'yellow';
-					my_div.style.transform = 'translateY(0px)';
-				});
-				right_parts[i].forEach(e => {
-					my_div = document.getElementById(e);
-					my_div.style.backgroundColor = 'green';
-					my_div.style.transform = 'translateY(0px)';
-				});
-				await sleep(2000);
-			}
-			await sleep(1000);
-			//Ahora animamos la parte derecha
-			for(let i = m+1; i <= (left_parts.length)-2; i++){
-				left_parts[i].forEach(e => {
-					my_div = document.getElementById(e);
-					my_div.style.backgroundColor = 'yellow';
-					my_div.style.transform = 'translateY(100px)';
-
-				});
-				right_parts[i-1].forEach(e => {
 					my_div = document.getElementById(e);
 					my_div.style.backgroundColor = 'green';
 					my_div.style.transform = 'translateY(100px)';
 				});
 				await sleep(2000);
 				//Hacemos cambios
-				var cambios = left_parts[i+1];			
-				cambios.forEach(e => {
-					var div = document.getElementById('half-'+e);
-					if(div == null){
-						x+=50;
-						var new_div = document.createElement('div');
-						var new_content = document.createTextNode(e);
-						new_div.id = 'half-'+e;
-						new_div.classList.add("element");
-						new_div.style.top = '300px';
-						new_div.style.left = x + 'px'; 
-						new_div.appendChild(new_content);
-						halfs.appendChild(new_div);
-					}
-				});
-				await sleep(2000);
 				//Terminamos los cambios, subimos el arreglo
 				left_parts[i].forEach(e => {
 					my_div = document.getElementById(e);
 					my_div.style.backgroundColor = 'yellow';
 					my_div.style.transform = 'translateY(0px)';
 				});
-				right_parts[i-1].forEach(e => {
+				right_parts[i].forEach(e => {
 					my_div = document.getElementById(e);
 					my_div.style.backgroundColor = 'green';
 					my_div.style.transform = 'translateY(0px)';
@@ -253,6 +192,7 @@
 				await sleep(2000);
 			}
 		}
+
 		
 		function aniMerge(){
 			
