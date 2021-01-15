@@ -86,6 +86,7 @@
 	<script type="text/javascript">
 
 		var elements = [];
+		var new_data = [];
 		var coords = [];
 		var left_parts = [];
 		var right_parts = [];
@@ -155,17 +156,42 @@
 			return new Promise(resolve => setTimeout(resolve, ms));
 		}
 
+		function updateDiv(e,arr){
+			let div = document.getElementById('halfs');
+			let elm = document.getElementById(`half-${e}`);
+			if(elm == null){//Si no existe agrégalo
+				var new_div = document.createElement('div');
+				var new_content = document.createTextNode(e);
+				new_div.id = `half-${e}`;
+				new_div.classList.add("element");
+				new_div.style.top = '350px';
+				new_div.style.left = `${coords[arr.indexOf(e)]}px`;
+				new_div.appendChild(new_content);
+				div.appendChild(new_div);
+			}
+			//Actualiza el div
+			div.childNodes.forEach(n =>{
+				let num = parseInt(n.textContent,10);
+				n.style.left = `${coords[arr.indexOf(num)]}px`;
+			});
+			return;
+		}
+
 		async function anime(){
 			//let x = 100;
 			//var halfs = document.getElementById('halfs');
 			/*Vamos a animar primero la parte izquierda del arreglo total*/
+			let long = left_parts.length;
+			console.log(`lenght=${long}`);
 			let m = Math.floor(left_parts.length/2);
 			console.log('El punto medio es: '+m);
+			var miI = left_parts[m-1].concat(right_parts[m-1]);
+			var miD = left_parts[long-2].concat(right_parts[long-2]);
+			var mitades = miI.concat(miD);
+			console.log(mitades);
+			console.log(m/2);
 			for(let i = 0; i <= (m-1); i++){
-
-				if ( left_parts[i].length > 1)
-					mitades.push(left_parts[i]);
-
+				console.log(`i=${i}`);
 				left_parts[i].forEach(e => {
 					my_div = document.getElementById(e);
 					my_div.style.backgroundColor = 'yellow';
@@ -178,6 +204,61 @@
 				});
 				await sleep(2000);
 				//Hacemos cambios
+				if(i<(m/2)){
+					left_parts[i].forEach(e=>{updateDiv(e,mitades)});
+					right_parts[i].forEach(e=>{updateDiv(e,mitades)});
+				}else if(i==(m-1)){
+					left_parts[i].forEach(e=>{updateDiv(e,left_parts[long-1])});
+					right_parts[i].forEach(e=>{updateDiv(e,left_parts[long-1])});
+				}else{
+					left_parts[i].forEach(e=>{updateDiv(e,mitades)});
+					right_parts[i].forEach(e=>{updateDiv(e,mitades)});
+				}
+				//Terminamos los cambios, subimos el arreglo
+				left_parts[i].forEach(e => {
+					my_div = document.getElementById(e);
+					my_div.style.backgroundColor = 'yellow';
+					my_div.style.transform = 'translateY(0px)';
+				});
+				right_parts[i].forEach(e => {
+					my_div = document.getElementById(e);
+					my_div.style.backgroundColor = 'green';
+					my_div.style.transform = 'translateY(0px)';
+				});
+				await sleep(2000);
+			}
+
+			mitades = [];
+			mitades = left_parts[long-1].concat(miD);
+
+			for(let i = m+1; i <= (left_parts.length-1); i++){
+				console.log(`i=${i}`);
+				left_parts[i].forEach(e => {
+					my_div = document.getElementById(e);
+					my_div.style.backgroundColor = 'yellow';
+					my_div.style.transform = 'translateY(100px)';
+				});
+				right_parts[i].forEach(e => {
+					my_div = document.getElementById(e);
+					my_div.style.backgroundColor = 'green';
+					my_div.style.transform = 'translateY(100px)';
+				});
+				await sleep(2000);
+				let a = (3*(m/2));
+				//Hacemos cambios
+				if(i<a){
+					left_parts[i].forEach(e=>{updateDiv(e,mitades)});
+					right_parts[i].forEach(e=>{updateDiv(e,mitades)});
+				}else if(i==long-2){
+					left_parts[i].forEach(e=>{updateDiv(e,left_parts[long-1].concat(right_parts[long-1]))});
+					right_parts[i].forEach(e=>{updateDiv(e,left_parts[long-1].concat(right_parts[long-1]))});
+				}else if(i==long-1){
+					left_parts[i].forEach(e=>{updateDiv(e,new_data)});
+					right_parts[i].forEach(e=>{updateDiv(e,new_data)});
+				}else{
+					left_parts[i].forEach(e=>{updateDiv(e,mitades)});
+					right_parts[i].forEach(e=>{updateDiv(e,mitades)});
+				}
 				//Terminamos los cambios, subimos el arreglo
 				left_parts[i].forEach(e => {
 					my_div = document.getElementById(e);
@@ -198,7 +279,7 @@
 			
 			//console.log('----------------\nAntes del merge\n---------------------');
 			//elements.forEach(e=>{console.log(e)});
-			var new_data = mergeSort(elements);
+			new_data = mergeSort(elements);
 			//console.log('----------------\nDespues del merge\n---------------------');
 			//new_data.forEach(e=>console.log(e));
 			console.log('Pasos por la izquierda');
