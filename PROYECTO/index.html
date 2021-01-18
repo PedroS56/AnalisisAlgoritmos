@@ -8,8 +8,9 @@
 	<link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-	<div class="container">
-		<div class="controls">
+	<div class="row">
+	<div class="container col-9">
+		<div class="controls" style="margin-left:30%">
 			<input id="string-values" type="text" placeholder="1,2,3,4,5">
 			<button onclick="createElements()">Crear arreglo</button>
 			<button onclick="init()">Animar</button>
@@ -18,6 +19,27 @@
 			<div id="status" class="status"></div>
 			<div id="halfs" class="halfs"></div>
 		</div>
+	</div>
+	<div class="col-3 informacion">
+		<p class="titulo">Merge Sort</p>
+		<p>Es un algoritmo de ordenamiento basado en la t&eacute;cnica divide y vencer&aacute;s, desarrollado en 1945 por Von Neumann</p>
+		<p>Es de complejidad O(nlog(n)).</p>
+		<p>Consiste en dividir el problema a resolver en subproblemas del mismo tipo que a su vez se dividir&aacute;n, mientras no sean suficientemente pequeños.</p>
+		<p>Pasos:</p>
+		<ol>
+		<li>Ordenar una secuencia S de elementos:</li>
+		<ol>
+		 <li>Si S tiene uno o ning&uacute;n elemento, est&aacute; ordenada.</li>
+		 <li>Si S tiene al menos dos elementos se divide en dos secuencias S1 y S2, S1 conteniendo los primeros n/2, y S2 los restantes.</li>
+		 <li>Ordenar S1 y S2, aplicando recursivamente este procedimiento.</li>
+		 <li>Mezclar S1 y S2 ordenadamente en S.</li>
+		</ol>
+		<li>Mezclar dos secuencias ordenadas S1 y S2 en S:</li>
+		 <ol>
+		  <li>Se tienen referencias al principio de cada una de las secuencias a mezclar (S1 y S2).</li>
+		  <li>Mientras en alguna secuencia queden elementos, se inserta en la secuencia resultante (S) el menor de los elementos referenciados y se avanza esa referencia una posición.</li>
+		</ol>
+		</ol>
 	</div>
 	<script type="text/javascript" src="js/animerge.js"></script>
 </body>
