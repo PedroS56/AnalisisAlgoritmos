@@ -16,6 +16,14 @@
 body{
 	background-color: #001B48;
 }
+.descripcion{
+	background-color:#02457A;
+	text-align:justify;
+	color:white;
+	font-family:quicksand;
+	border-radius: 10px;
+	margin-top: 50px;
+}
 
 .informacion{
 	background-color:#02457A;
@@ -118,3 +126,4 @@ input::placeholder {
   [class*="col-"] {
     width: 100%;
   }
+}

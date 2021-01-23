@@ -69,8 +69,21 @@ function sleep(ms) {
 		coordenadas son almacenadas en el arreglo coords para posteriormente utilizarlas en el proceso de animación.
 */
 function createElements(){		
+	
+	elements = [];
+	coords = [];
+	const status = document.getElementById("status");// Limpia los los elemento de anteriores animaciones
+	while (status.firstChild) {
+		status.removeChild(status.lastChild);
+	}
+	const halfs = document.getElementById("halfs");
+	while (halfs.firstChild) {
+		halfs.removeChild(halfs.lastChild);
+	}
+
+
 	var values = document.getElementById('string-values').value;
-	var container = document.getElementById('container');
+	var container = document.getElementById('status');
 	let x = 100;
 	values.split(',').forEach(e => {
 		elements.push(parseInt(e,10));
@@ -143,9 +156,11 @@ async function animerge(){
 	var leftAux = left_parts[m-1].concat(right_parts[m-1]);
 	var rightAux = left_parts[long-2].concat(right_parts[long-2]);
 	var algoStat = leftAux.concat(rightAux);
+	var p = document.getElementById("descripcion");
 
 	//Comanzamos a animar la mitad izquierda del arreglo completo
 	for(let i = 0; i <= (m-1); i++){
+		p.innerHTML = "Izquierda:"+left_parts[i]+" Derecha:"+right_parts[i]+" Arreglo Resultante:"+merge(left_parts[i],right_parts[i]);
 		//Pintamos y bajamos cada elemento de la parte izquirda
 		left_parts[i].forEach(e => {
 			my_div = document.getElementById(e);
@@ -189,7 +204,8 @@ async function animerge(){
 
 	//Comenzamos a animar la mitad derecha del arreglo completo
 	for(let i = m; i <= (long-1); i++){
-		console.log(`i=${i}`);
+		p.innerHTML = "Izquierda:"+left_parts[i]+" Derecha:"+right_parts[i]+" Arreglo Resultante:"+merge(left_parts[i],right_parts[i]);
+		// console.log(`i=${i}`);
 		left_parts[i].forEach(e => {
 			my_div = document.getElementById(e);
 			my_div.style.backgroundColor = '#97CADB';
@@ -231,10 +247,13 @@ async function animerge(){
 }
 
 function init(){
+	//vacia los arreglos si es que ya se usaron
+	
+	new_data = [];
+	left_parts = [];
+	right_parts = [];
 	new_data = mergeSort(elements);
-	/*console.log('Pasos por la izquierda');
-	console.log(left_parts);
-	console.log('Pasos por la derecha');
-	console.log(right_parts);*/
+
 	animerge();
+	
 }
