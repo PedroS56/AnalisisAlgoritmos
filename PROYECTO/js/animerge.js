@@ -160,7 +160,7 @@ async function animerge(){
 
 	//Comanzamos a animar la mitad izquierda del arreglo completo
 	for(let i = 0; i <= (m-1); i++){
-		p.innerHTML = "Izquierda:"+left_parts[i]+" Derecha:"+right_parts[i]+" Arreglo Resultante:"+merge(left_parts[i],right_parts[i]);
+		p.innerHTML = "Izquierda:  "+left_parts[i]+"  Derecha:  "+right_parts[i];
 		//Pintamos y bajamos cada elemento de la parte izquirda
 		left_parts[i].forEach(e => {
 			my_div = document.getElementById(e);
@@ -174,6 +174,9 @@ async function animerge(){
 			my_div.style.transform = 'translateY(100px)';
 		});
 		await sleep(2000);
+		p.innerHTML = "Merge..."
+		await sleep(1000);
+		p.innerHTML= "Arreglo Resultante:  "+merge(left_parts[i],right_parts[i]);
 		//Hacemos cambios
 		if(i<(m/2)){//Ordenamos el primer cuarto del areglo
 			left_parts[i].forEach(e=>{updateDiv(e,algoStat)});
@@ -185,6 +188,7 @@ async function animerge(){
 			left_parts[i].forEach(e=>{updateDiv(e,algoStat)});
 			right_parts[i].forEach(e=>{updateDiv(e,algoStat)});
 		}
+
 		//Terminamos los cambios, subimos el arreglo
 		left_parts[i].forEach(e => {
 			my_div = document.getElementById(e);
